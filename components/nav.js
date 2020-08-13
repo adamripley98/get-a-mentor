@@ -1,29 +1,36 @@
-import Link from 'next/link'
+import Link from "next/link";
+import NavButton from "./navbutton";
 
 const links = [
-  { href: 'https://github.com/vercel/next.js', label: 'GitHub' },
-  { href: 'https://nextjs.org/docs', label: 'Docs' },
-]
+  { href: "https://github.com/vercel/next.js", label: "GitHub" },
+  { href: "https://nextjs.org/docs", label: "Docs" }
+];
 
 export default function Nav() {
   return (
-    <nav>
-      <ul className="flex justify-between items-center p-8">
-        <li>
-          <Link href="/">
-            <a className="text-blue-500 no-underline">Home</a>
-          </Link>
+    <nav className="bg-white sticky top-0 shadow-2xl z-50">
+      <ul className="flex justify-between items-center px-6 py-3">
+        <li className="text-4xl font-extrabold text-purple-900">
+          <Link href="/">Get A Mentor</Link>
         </li>
-        <ul className="flex justify-between items-center space-x-4">
-          {links.map(({ href, label }) => (
-            <li key={`${href}${label}`}>
-              <a href={href} className="btn-blue no-underline">
-                {label}
-              </a>
-            </li>
-          ))}
+        <ul className="flex justify-between items-center space-x-4 font-bold text-purple-900">
+          <li className="px-3">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="px-3">
+            <Link href="/about">About</Link>
+          </li>
+          <li className="px-3">
+            <Link href="/get-a-mentor">Get A Mentor</Link>
+          </li>
+          <li className="px-3">
+            <Link href="/become-a-mentor">Become A Mentor</Link>
+          </li>
+          <li className="px-3">
+            <NavButton text="Contact"></NavButton>
+          </li>
         </ul>
       </ul>
     </nav>
-  )
+  );
 }
