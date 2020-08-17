@@ -8,12 +8,12 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="bg-white sticky top-0 shadow-2xl z-50">
+    <nav className="bg-white sticky top-0 shadow-lg z-50">
       <ul className="flex justify-between items-center px-6 py-3">
-        <li className="text-4xl font-extrabold text-purple-900">
+        <li className="text-4xl font-extrabold dark-font">
           <Link href="/">Get A Mentor</Link>
         </li>
-        <ul className="flex justify-between items-center space-x-4 font-bold text-purple-900">
+        <ul className="flex justify-between items-center space-x-4 font-bold dark-font">
           <li className="px-3">
             <Link href="/">Home</Link>
           </li>

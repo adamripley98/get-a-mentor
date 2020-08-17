@@ -2,6 +2,7 @@ import Nav from "../components/nav";
 import Button from "../components/button";
 import Layout from "../components/layout";
 import HeroImg from "../images/hero.jpg";
+import MentorImg from "../images/mentor.png";
 
 export default function IndexPage() {
   return (
@@ -9,23 +10,16 @@ export default function IndexPage() {
       <Nav />
 
       <section id="top" className="top-background flex items-center">
-        <div className="container mx-20 lg:flex lg:items-center bg-gray-100 shadow-2xl rounded-lg">
+        <div className="container mx-20 lg:flex lg:items-center rounded-lg">
           <div className="lg:w-1/2">
-            <img
-              src={HeroImg}
-              className="hide-on-mobile rounded-l-lg"
-              alt="hero"
-            />
-          </div>
-          <div className="text-center mx-10 lg:w-1/2">
-            <h1 className="text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-none text-purple-900">
-              Get A Mentor
+            <h1 className="mt-8 text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight dark-font">
+              Ready to take the next step towards your college dreams?
             </h1>
-            <p className="text-2xl lg:text-3xl mt-6 font-light">
-              Include some sort of catchy statement here about all that this
-              opportunity can offer mentors and mentees.
+            <p className="text-xl lg:text-2xl mt-6 font-light">
+              Connect with South Africans studying abroad and discover the
+              possibilities for your future.
             </p>
-            <div className="mt-8">
+            <div className="my-8">
               <Button size="lg" className="mr-4">
                 <a className="btn-link" href="/get-a-mentor">
                   Get A Mentor
@@ -37,6 +31,9 @@ export default function IndexPage() {
                 </a>
               </Button>
             </div>
+          </div>
+          <div className="lg:w-1/2">
+            <img src={MentorImg} alt="hero" />
           </div>
         </div>
       </section>
