@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import HeroImg from "../images/hero.jpg";
 import MentorImg from "../images/mentor.png";
 import MentorCard from "../components/MentorCard";
+import SchoolSelect from "../components/SchoolSelect";
 import mentors from "../mentors/mentors.js";
 
 export default function GetAMentorPage() {
@@ -12,9 +13,10 @@ export default function GetAMentorPage() {
       <Nav />
       <section className="container mx-auto">
         <div className="container mx-auto px-2 py-12">
-          <h1 className="mb-6 pb-6 text-3xl font-bold text-center uppercase">
-            Penn mentors
+          <h1 className="mb-8 text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center dark-font">
+            Find the right mentor for you
           </h1>
+          <SchoolSelect />
           <div className="flex justify-center">
             {mentors.map(mentor => (
               <div

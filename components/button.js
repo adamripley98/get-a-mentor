@@ -5,7 +5,7 @@ export default ({ children, className }) => (
         px-8
         py-4
         teal-btn
-        rounded-lg
+        rounded-sm
         text-white
         shadow-xl
         text-xl"
