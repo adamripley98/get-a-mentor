@@ -11,7 +11,7 @@ const MentorCard = ({ mentor }) => (
       <img
         src={mentor.profilePicture}
         alt={mentor.firstName}
-        className="rounded-full h-40 w-40 mb-4 bg-cover"
+        className="rounded-full h-40 w-40 mb-4 bg-auto"
       />
       <h1 className="text-3xl font-bold">
         {mentor.firstName} {mentor.lastName}

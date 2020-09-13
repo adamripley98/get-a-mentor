@@ -19,8 +19,7 @@ export default [
   {
     firstName: "John",
     lastName: "Smith",
-    profilePicture:
-      "https://amp.businessinsider.com/images/5cf61c6b11e2052c4e04d343-750-563.jpg",
+    profilePicture: "https://i.insider.com/59fc9cf358a0c130008b649f?width=1867",
     email: "aripley@wharton.upenn.edu",
     phoneNumber: "9074419174",
     college: "University of Pennsylvania",
