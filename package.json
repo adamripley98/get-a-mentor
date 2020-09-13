@@ -14,7 +14,8 @@
     "next": "latest",
     "next-images": "^1.4.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-dropzone": "^11.1.0"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
