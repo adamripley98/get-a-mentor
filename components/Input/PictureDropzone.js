@@ -14,9 +14,7 @@ export default () => (
       <section className="h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm pt-3 px-4 appearance-none leading-normal">
         <div {...getRootProps()}>
           <input {...getInputProps()} />
-          <p className="text-gray-500">
-            Drag 'n' drop some files here, or click to select files
-          </p>
+          <p className="text-gray-500">Click to select file</p>
         </div>
       </section>
     )}

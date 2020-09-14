@@ -45,13 +45,13 @@ class MentorForm extends React.Component {
   render() {
     return (
       <div
-        className="mx-2 py-8 px-4 border border-solid rounded-sm border-gray-300 flex flex-col items-center"
+        className="w-3/4 mx-2 py-8 px-20 border border-solid rounded-sm border-gray-300"
         style={{
           boxShadow: "0 10px 28px rgba(0,0,0,.08)"
         }}
       >
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="name"
@@ -67,7 +67,7 @@ class MentorForm extends React.Component {
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="profilePicture"
@@ -78,8 +78,8 @@ class MentorForm extends React.Component {
           </div>
         </div>
 
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="email"
@@ -95,7 +95,7 @@ class MentorForm extends React.Component {
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="phoneNumber"
@@ -113,8 +113,8 @@ class MentorForm extends React.Component {
           </div>
         </div>
 
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="college"
@@ -123,7 +123,7 @@ class MentorForm extends React.Component {
             </label>
             <SchoolSelect handleChange={this.handleChange} />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="yearOfCollege"
@@ -134,8 +134,8 @@ class MentorForm extends React.Component {
           </div>
         </div>
 
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="fieldOfStudy"
@@ -151,7 +151,7 @@ class MentorForm extends React.Component {
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="activities"
@@ -169,8 +169,8 @@ class MentorForm extends React.Component {
           </div>
         </div>
 
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="careerInterests"
@@ -186,7 +186,7 @@ class MentorForm extends React.Component {
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="numMentees"
@@ -197,8 +197,8 @@ class MentorForm extends React.Component {
           </div>
         </div>
 
-        <div className="flex my-4">
-          <div className="flex-grow mr-4">
+        <div className="flex my-8">
+          <div className="w-1/2 mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
@@ -214,7 +214,7 @@ class MentorForm extends React.Component {
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow">
+          <div className="w-1/2 ml-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
@@ -231,7 +231,7 @@ class MentorForm extends React.Component {
             />
           </div>
         </div>
-        <span onClick={this.handleSubmit}>
+        <span className="flex justify-center" onClick={this.handleSubmit}>
           <Button size="lg">SIGN UP</Button>
         </span>
       </div>
