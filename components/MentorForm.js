@@ -1,3 +1,4 @@
+import axios from "axios";
 import Button from "./button";
 import PictureDropzone from "./Input/PictureDropzone";
 import SchoolSelect from "./Input/SchoolSelect";
@@ -19,7 +20,7 @@ class MentorForm extends React.Component {
       careerInterests: "",
       hometown: "",
       highSchool: "",
-      numMentees: -1
+      numMentees: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,7 +32,14 @@ class MentorForm extends React.Component {
   }
 
   handleSubmit() {
-    console.log("state", this.state);
+    axios
+      .post("/api/add-mentor", { user: this.state })
+      .then(resp => {
+        console.log("resp", resp.data);
+      })
+      .catch(e => {
+        console.log("e", e);
+      });
   }
 
   render() {
