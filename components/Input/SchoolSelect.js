@@ -1,7 +1,8 @@
-export default () => (
+export default ({ handleChange }) => (
   <select
     id="college"
     name="college"
+    onChange={handleChange}
     className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full leading-normal text-gray-500"
   >
     <option value="hide" className="text-gray-500">

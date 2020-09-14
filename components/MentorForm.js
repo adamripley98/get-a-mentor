@@ -19,14 +19,19 @@ class MentorForm extends React.Component {
       careerInterests: "",
       hometown: "",
       highSchool: "",
-      numMentees: ""
+      numMentees: -1
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     e.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit() {
+    console.log("state", this.state);
   }
 
   render() {
@@ -51,10 +56,10 @@ class MentorForm extends React.Component {
               value={this.state.name}
               placeholder="Jane Doe"
               onChange={this.handleChange}
-              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow mr-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="profilePicture"
@@ -66,7 +71,7 @@ class MentorForm extends React.Component {
         </div>
 
         <div className="flex my-4">
-          <div className="flex-grow ml-4">
+          <div className="flex-grow mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="email"
@@ -79,10 +84,10 @@ class MentorForm extends React.Component {
               value={this.state.email}
               onChange={this.handleChange}
               placeholder="jane@example.com"
-              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow ml-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="phoneNumber"
@@ -95,34 +100,34 @@ class MentorForm extends React.Component {
               value={this.state.phoneNumber}
               onChange={this.handleChange}
               placeholder="(123) 456-7890"
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
         </div>
 
         <div className="flex my-4">
-          <div className="flex-grow ml-4">
+          <div className="flex-grow mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="college"
             >
               College
             </label>
-            <SchoolSelect />
+            <SchoolSelect handleChange={this.handleChange} />
           </div>
-          <div className="flex-grow ml-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="yearOfCollege"
             >
               Year of college
             </label>
-            <YearSelect />
+            <YearSelect handleChange={this.handleChange} />
           </div>
         </div>
 
         <div className="flex my-4">
-          <div className="flex-grow ml-4">
+          <div className="flex-grow mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="fieldOfStudy"
@@ -135,10 +140,10 @@ class MentorForm extends React.Component {
               value={this.state.fieldOfStudy}
               onChange={this.handleChange}
               placeholder="Physics"
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow ml-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="activities"
@@ -151,13 +156,13 @@ class MentorForm extends React.Component {
               value={this.state.activities}
               placeholder="Water polo and debate"
               onChange={this.handleChange}
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
         </div>
 
         <div className="flex my-4">
-          <div className="flex-grow ml-4">
+          <div className="flex-grow mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="careerInterests"
@@ -170,22 +175,22 @@ class MentorForm extends React.Component {
               value={this.state.careerInterests}
               onChange={this.handleChange}
               placeholder="Investment banking"
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow ml-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="numMentees"
             >
               Number of mentees per month
             </label>
-            <NumSelect />
+            <NumSelect handleChange={this.handleChange} />
           </div>
         </div>
 
         <div className="flex my-4">
-          <div className="flex-grow ml-4">
+          <div className="flex-grow mr-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
@@ -198,10 +203,10 @@ class MentorForm extends React.Component {
               value={this.state.highSchool}
               onChange={this.handleChange}
               placeholder="Magnet High School"
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
-          <div className="flex-grow ml-4">
+          <div className="flex-grow">
             <label
               class="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
@@ -214,15 +219,13 @@ class MentorForm extends React.Component {
               value={this.state.hometown}
               onChange={this.handleChange}
               placeholder="San Francisco, USA"
-              className="focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full appearance-none leading-normal"
+              className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>
         </div>
-        <Button size="lg">
-          <a className="btn-link" href="/TODO">
-            SIGN UP
-          </a>
-        </Button>
+        <span onClick={this.handleSubmit}>
+          <Button size="lg">SIGN UP</Button>
+        </span>
       </div>
     );
   }

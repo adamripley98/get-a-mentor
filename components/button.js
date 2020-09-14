@@ -10,7 +10,7 @@ export default ({ children, className }) => (
         shadow-xl
         text-xl"
       `}
-    type="button"
+    type="submit"
   >
     {children}
   </button>

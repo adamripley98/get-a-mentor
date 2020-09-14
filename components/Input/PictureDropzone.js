@@ -11,7 +11,7 @@ export default () => (
     onDrop={acceptedFiles => handleDrop(acceptedFiles)}
   >
     {({ getRootProps, getInputProps }) => (
-      <section className="h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal">
+      <section className="h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm pt-3 px-4 appearance-none leading-normal">
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <p className="text-gray-500">
