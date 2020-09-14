@@ -53,7 +53,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="name"
             >
               Full name
@@ -69,7 +69,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="profilePicture"
             >
               Profile picture
@@ -81,7 +81,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="email"
             >
               Email
@@ -97,7 +97,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="phoneNumber"
             >
               Phone number
@@ -116,7 +116,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="college"
             >
               College
@@ -125,7 +125,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="yearOfCollege"
             >
               Year of college
@@ -137,7 +137,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="fieldOfStudy"
             >
               Field of study
@@ -153,7 +153,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="activities"
             >
               On-Campus Activities
@@ -172,7 +172,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="careerInterests"
             >
               Career interests
@@ -188,7 +188,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="numMentees"
             >
               Number of mentees per month
@@ -200,7 +200,7 @@ class MentorForm extends React.Component {
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
             >
               High school
@@ -216,7 +216,7 @@ class MentorForm extends React.Component {
           </div>
           <div className="w-1/2 ml-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-sm font-bold mb-1"
               for="highSchool"
             >
               Hometown
