@@ -7,15 +7,26 @@ import HeroImg from "../images/hero.jpg";
 import MentorImg from "../images/mentor.png";
 import MentorCard from "../components/MentorCard";
 import SchoolSelect from "../components/SchoolSelect";
-import mentors from "../mentors/mentors.js";
 
 const fetcher = url => fetch(url).then(res => res.json());
 
+let mentors = null;
+
+const formatMentors = data => {
+  mentors = [];
+  for (const mentor in data.mentors) {
+    mentors.push(data.mentors[mentor].fields);
+  }
+  return mentors;
+};
+
 export default function GetAMentorPage() {
-  const { data, error } = useSwr("/api/users", fetcher);
+  const { data, error } = useSwr("/api/mentors", fetcher);
 
   if (error) return <div>Failed to load users</div>;
   if (!data) return <div>Loading...</div>;
+  if (data) console.log(data);
+  if (data) mentors = formatMentors(data);
   return (
     <div>
       <Nav />
@@ -25,16 +36,18 @@ export default function GetAMentorPage() {
             Find the right mentor for you
           </h1>
           <SchoolSelect />
-          <div className="flex justify-center">
-            {mentors.map(mentor => (
-              <div
-                key={mentor.lastName}
-                className="w-full md:w-1/2 lg:w-1/3 mb-4"
-              >
-                <MentorCard mentor={mentor} />
-              </div>
-            ))}
-          </div>
+          {mentors && mentors.length ? (
+            <div className="flex justify-center">
+              {mentors.map(mentor => (
+                <div
+                  key={mentor.lastName}
+                  className="w-full md:w-1/2 lg:w-1/3 mb-4"
+                >
+                  <MentorCard mentor={mentor} />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
     </div>
