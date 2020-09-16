@@ -20,10 +20,14 @@ class MentorForm extends React.Component {
       careerInterests: "",
       hometown: "",
       highSchool: "",
-      numMentees: ""
+      numMentees: "",
+      success: false,
+      error: false,
+      pending: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showErrorMessage = this.showErrorMessage.bind(this);
   }
 
   handleChange(e) {
@@ -32,24 +36,65 @@ class MentorForm extends React.Component {
   }
 
   handleSubmit() {
+    this.setState({ pending: true });
     axios
       .post("/api/add-mentor", { user: this.state })
       .then(resp => {
-        console.log("resp", resp.data);
+        if (resp.data.success === true) {
+          this.setState({
+            success: true,
+            pending: false,
+            error: false
+          });
+          window.scrollTo(0, 0);
+        } else {
+          this.setState({
+            success: false,
+            pending: false,
+            error: true
+          });
+          window.scrollTo(0, 0);
+        }
       })
       .catch(e => {
-        console.log("e", e);
+        this.setState({
+          success: false,
+          pending: false,
+          error: true
+        });
       });
   }
 
-  render() {
+  showErrorMessage() {
+    if (this.state.error) {
+      return (
+        <div className="bg-red-200 py-4 px-6 rounded-lg">
+          <h1>
+            There was an error submitting your information. Please ensure all
+            fields are filled out completely. If issue persists, send us your
+            application directly via email.
+          </h1>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  showSuccessMessage() {
     return (
-      <div
-        className="w-3/4 mx-2 py-8 px-20 border border-solid rounded-sm border-gray-300"
-        style={{
-          boxShadow: "0 10px 28px rgba(0,0,0,.08)"
-        }}
-      >
+      <div className="bg-green-200 py-4 px-6 rounded-lg">
+        <h1>
+          Request sent successfully! We will reach out to you shortly with next
+          steps.
+        </h1>
+      </div>
+    );
+  }
+
+  showForm() {
+    return (
+      <>
         <div className="flex my-8">
           <div className="w-1/2 mr-4">
             <label
@@ -232,8 +277,24 @@ class MentorForm extends React.Component {
           </div>
         </div>
         <span className="flex justify-center" onClick={this.handleSubmit}>
-          <Button size="lg">SIGN UP</Button>
+          <Button size="lg">
+            {this.state.pending ? "SIGNING UP..." : "SIGN UP"}
+          </Button>
         </span>
+      </>
+    );
+  }
+
+  render() {
+    return (
+      <div
+        className="w-3/4 mx-2 py-8 px-20 border border-solid rounded-sm border-gray-300"
+        style={{
+          boxShadow: "0 10px 28px rgba(0,0,0,.08)"
+        }}
+      >
+        {this.showErrorMessage()}
+        {this.state.success ? this.showSuccessMessage() : this.showForm()}
       </div>
     );
   }

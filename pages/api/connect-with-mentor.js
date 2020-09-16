@@ -46,20 +46,17 @@ export default (req, res) => {
     to: email || "adamripley@gmail.com",
     from: process.env.ADMIN_EMAIL_ADDRESS,
     subject: `Get A Mentor Inquiry from ${firstName} ${lastName}`,
-    text: "and easy to do anywhere, even with Node.js",
     html: emailBody
   };
 
   sgMail
     .send(msg)
     .then(resp => {
-      console.log("rr", resp);
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       res.end(JSON.stringify({ success: "true" }));
     })
     .catch(e => {
-      console.log("e", e);
       res.end(JSON.stringify({ success: "false" }));
       return;
     });

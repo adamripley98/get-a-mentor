@@ -27,7 +27,9 @@ export default function Nav() {
             <Link href="/become-a-mentor">Become A Mentor</Link>
           </li>
           <li className="px-3">
-            <NavButton text="Contact"></NavButton>
+            <a href="mailto:ntap@wharton.upenn.edu">
+              <NavButton text="Contact" />
+            </a>
           </li>
         </ul>
       </ul>

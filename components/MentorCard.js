@@ -47,16 +47,16 @@ const MentorCard = ({ mentor }) => (
         </div>
       </div>
     </div>
-    <Button size="lg">
-      <Link
-        href={{
-          pathname: "/connect-with-mentor",
-          query: { id: mentor["id"] }
-        }}
-      >
-        <a className="btn-link">CONNECT</a>
-      </Link>
-    </Button>
+    <Link
+      href={{
+        pathname: "/connect-with-mentor",
+        query: { id: mentor["id"] }
+      }}
+    >
+      <a className="btn-link">
+        <Button size="lg">CONNECT</Button>
+      </a>
+    </Link>
   </div>
 );
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "../components/nav";
 import Button from "../components/button";
 import Layout from "../components/layout";
@@ -20,16 +21,20 @@ export default function IndexPage() {
               possibilities for your future.
             </p>
             <div className="my-8">
-              <Button size="lg" className="mr-4">
-                <a className="btn-link" href="/get-a-mentor">
-                  Get A Mentor
+              <Link href="/get-a-mentor">
+                <a className="btn-link">
+                  <Button size="lg" className="mr-4">
+                    Get A Mentor
+                  </Button>
                 </a>
-              </Button>
-              <Button size="lg" className="mr-4">
-                <a className="btn-link" href="/become-a-mentor">
-                  Become a Mentor
+              </Link>
+              <Link href="/become-a-mentor">
+                <a className="btn-link">
+                  <Button size="lg" className="mr-4">
+                    Become a Mentor
+                  </Button>
                 </a>
-              </Button>
+              </Link>
             </div>
           </div>
           <div className="lg:w-1/2">

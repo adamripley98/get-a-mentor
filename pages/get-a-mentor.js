@@ -8,6 +8,7 @@ import MentorImg from "../images/mentor.png";
 import MentorCard from "../components/MentorCard";
 import MentorCards from "../components/MentorCards";
 import SchoolSelect from "../components/SchoolSelect";
+import Loading from "../components/Loading";
 
 const fetcher = url => fetch(url).then(res => res.json());
 
@@ -27,7 +28,13 @@ export default function GetAMentorPage() {
   const { data, error } = useSwr("/api/mentors", fetcher);
 
   if (error) return <div>Failed to load users</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data)
+    return (
+      <div>
+        <Nav />
+        <Loading />
+      </div>
+    );
   if (data) mentors = formatMentors(data);
 
   return (
