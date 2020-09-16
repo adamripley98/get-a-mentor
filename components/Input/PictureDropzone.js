@@ -11,11 +11,11 @@ export default ({ updateProfilePic, profilePicture }) => {
     reader.onabort = () => console.log("file reading was aborted");
     reader.onerror = () => console.log("file reading has failed");
     reader.onload = () => {
-      // Do whatever you want with the file contents
-      const binaryStr = reader.result;
-      updateProfilePic(imgName, binaryStr);
+      const file = reader.result;
+      console.log("binStr", file);
+      updateProfilePic(imgName, file);
     };
-    reader.readAsArrayBuffer(img);
+    reader.readAsDataURL(img);
   };
 
   return (

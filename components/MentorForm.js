@@ -32,7 +32,6 @@ class MentorForm extends React.Component {
   }
 
   updateProfilePic(imgName, binaryStr) {
-    console.log("update", imgName, binaryStr);
     this.setState({ profilePicture: { imgName, binaryStr } });
   }
 
@@ -46,7 +45,7 @@ class MentorForm extends React.Component {
     axios
       .post("/api/add-mentor", { user: this.state })
       .then(resp => {
-        if (resp.data.success === true) {
+        if (resp.data.success) {
           this.setState({
             success: true,
             pending: false,
