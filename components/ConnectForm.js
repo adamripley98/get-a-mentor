@@ -62,7 +62,7 @@ class ConnectForm extends React.Component {
     axios
       .post("/api/connect-with-mentor", { data: this.state })
       .then(resp => {
-        if (resp.data.success) {
+        if (resp.data.success == "true") {
           this.setState({ success: true, error: false, pending: false });
           window.scrollTo(0, 0);
         } else {

@@ -45,7 +45,7 @@ class MentorForm extends React.Component {
     axios
       .post("/api/add-mentor", { user: this.state })
       .then(resp => {
-        if (resp.data.success) {
+        if (resp.data.success == "true") {
           this.setState({
             success: true,
             pending: false,

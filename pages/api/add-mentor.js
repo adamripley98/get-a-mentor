@@ -9,6 +9,14 @@ const AWS_BUCKET_NAME = process.env.AWS_BUCKET_NAME;
 const AWS_USER_KEY = process.env.AWS_USER_KEY;
 const AWS_USER_SECRET = process.env.AWS_USER_SECRET;
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "3mb"
+    }
+  }
+};
+
 export default (req, res) => {
   const {
     name,
@@ -52,44 +60,39 @@ export default (req, res) => {
       res.end(JSON.stringify({ success: "false" }));
       return;
     }
-    // TODO send to airtable
-    console.log("hell yeah it worked", data.Location);
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ success: "true" }));
+    // Airtable payload
+    var payload = [
+      {
+        fields: {
+          Name: name,
+          "Profile Picture": data.Location,
+          Email: email,
+          "Phone Number": phoneNumber,
+          College:
+            college === "upenn"
+              ? "University of Pennsylvania"
+              : college.charAt(0).toUpperCase() + college.slice(1),
+          "Year of College":
+            yearOfCollege.charAt(0).toUpperCase() + yearOfCollege.slice(1),
+          "Field of Study": fieldOfStudy,
+          "On-Campus Activities": activities,
+          "Career Interests": careerInterests,
+          "Home City": hometown,
+          "High School": highSchool,
+          "Mentees/month": numMentees
+        }
+      }
+    ];
+
+    base("Mentors").create(payload, (err, records) => {
+      if (err) {
+        console.log("what is err", err);
+        res.end(JSON.stringify({ success: "false" }));
+        return;
+      }
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify({ success: "true" }));
+    });
   });
-
-  // // Airtable payload
-  // var payload = [
-  //   {
-  //     fields: {
-  //       Name: name,
-  //       Email: email,
-  //       "Phone Number": phoneNumber,
-  //       College:
-  //         college === "upenn"
-  //           ? "University of Pennsylvania"
-  //           : college.charAt(0).toUpperCase() + college.slice(1),
-  //       "Year of College":
-  //         yearOfCollege.charAt(0).toUpperCase() + yearOfCollege.slice(1),
-  //       "Field of Study": fieldOfStudy,
-  //       "On-Campus Activities": activities,
-  //       "Career Interests": careerInterests,
-  //       "Home City": hometown,
-  //       "High School": highSchool,
-  //       "Mentees/month": numMentees
-  //     }
-  //   }
-  // ];
-
-  // base("Mentors").create(payload, (err, records) => {
-  //   if (err) {
-  //     console.log("what is err", err);
-  //     res.end(JSON.stringify({ success: "false" }));
-  //     return;
-  //   }
-  //   res.statusCode = 200;
-  //   res.setHeader("Content-Type", "application/json");
-  //   res.end(JSON.stringify({ success: "true" }));
-  // });
 };
