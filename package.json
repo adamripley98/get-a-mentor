@@ -10,6 +10,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@sendgrid/mail": "^7.2.5",
     "airtable": "^0.10.0",
     "axios": "^0.20.0",
     "next": "latest",

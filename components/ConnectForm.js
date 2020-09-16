@@ -53,8 +53,9 @@ class ConnectForm extends React.Component {
   }
 
   handleSubmit() {
+    console.log("state", this.state);
     axios
-      .post("/api/connect-with-mentor", { user: this.state })
+      .post("/api/connect-with-mentor", { data: this.state })
       .then(resp => {
         console.log("resp", resp.data);
       })
@@ -182,10 +183,10 @@ class ConnectForm extends React.Component {
                   <option value="hide" className="text-gray-500">
                     Select current grade
                   </option>
-                  <option value="1">High school freshman</option>
-                  <option value="2">High school sophomore</option>
-                  <option value="3">High school junior</option>
-                  <option value="4">High school senior</option>
+                  <option value="freshman">High school freshman</option>
+                  <option value="sophomore">High school sophomore</option>
+                  <option value="junior">High school junior</option>
+                  <option value="senior">High school senior</option>
                 </select>
               </div>
             </div>
