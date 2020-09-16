@@ -16,7 +16,9 @@ let mentors = null;
 const formatMentors = data => {
   mentors = [];
   for (const mentor in data.mentors) {
-    mentors.push(data.mentors[mentor].fields);
+    const mentorObj = data.mentors[mentor].fields;
+    mentorObj.id = data.mentors[mentor].id;
+    mentors.push(mentorObj);
   }
   return mentors;
 };

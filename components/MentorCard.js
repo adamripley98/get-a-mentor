@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "./button";
 
 const MentorCard = ({ mentor }) => (
@@ -47,9 +48,14 @@ const MentorCard = ({ mentor }) => (
       </div>
     </div>
     <Button size="lg">
-      <a className="btn-link" href="/TODO">
-        CONNECT
-      </a>
+      <Link
+        href={{
+          pathname: "/connect-with-mentor",
+          query: { id: mentor["id"] }
+        }}
+      >
+        <a className="btn-link">CONNECT</a>
+      </Link>
     </Button>
   </div>
 );

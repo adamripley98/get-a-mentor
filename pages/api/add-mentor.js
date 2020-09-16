@@ -1,4 +1,3 @@
-const axios = require("axios");
 var Airtable = require("airtable");
 var base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
   process.env.AIRTABLEBASEID
