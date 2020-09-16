@@ -19,8 +19,9 @@ class SchoolSelect extends React.Component {
     for (const school in checkStates) {
       if (school === e.target.value) {
         const newState = !checkStates[school];
+        checkStates[school] = newState;
         this.setState({ [school]: newState });
-        this.props.filterMentors(this.state);
+        this.props.filterMentors(checkStates);
       }
     }
   }

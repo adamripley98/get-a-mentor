@@ -5,7 +5,6 @@ var base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
 );
 
 export default (req, res) => {
-  console.log("enters add-mentor", req.body);
   const {
     name,
     email,
@@ -44,14 +43,11 @@ export default (req, res) => {
 
   base("Mentors").create(payload, (err, records) => {
     if (err) {
-      console.error("Err", err);
+      res.end(JSON.stringify({ success: "false" }));
       return;
     }
-    records.forEach(function(record) {
-      console.log("id: ", record.getId());
-    });
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ implemented: "false" }));
+    res.end(JSON.stringify({ success: "true" }));
   });
 };

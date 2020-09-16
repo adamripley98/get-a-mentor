@@ -7,8 +7,6 @@ const MentorCard = ({ mentor }) => (
       boxShadow: "0 10px 28px rgba(0,0,0,.08)"
     }}
   >
-    {console.log("mentor", mentor["Field of Study"])}
-
     <div className="flex flex-col items-center">
       <img
         src={mentor["Profile Picture"]}
