@@ -1,11 +1,6 @@
 import Link from "next/link";
 import NavButton from "./navbutton";
 
-const links = [
-  { href: "https://github.com/vercel/next.js", label: "GitHub" },
-  { href: "https://nextjs.org/docs", label: "Docs" }
-];
-
 export default function Nav() {
   return (
     <nav className="bg-white sticky top-0 shadow-lg z-50">

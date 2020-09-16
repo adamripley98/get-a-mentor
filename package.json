@@ -12,6 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@sendgrid/mail": "^7.2.5",
     "airtable": "^0.10.0",
+    "aws-sdk": "^2.754.0",
     "axios": "^0.20.0",
     "next": "latest",
     "next-images": "^1.4.1",

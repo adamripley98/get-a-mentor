@@ -10,7 +10,7 @@ class MentorForm extends React.Component {
     super(props);
     this.state = {
       name: "",
-      profilePicture: "",
+      profilePicture: {},
       email: "",
       phoneNumber: "",
       college: "",
@@ -28,6 +28,12 @@ class MentorForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showErrorMessage = this.showErrorMessage.bind(this);
+    this.updateProfilePic = this.updateProfilePic.bind(this);
+  }
+
+  updateProfilePic(imgName, binaryStr) {
+    console.log("update", imgName, binaryStr);
+    this.setState({ profilePicture: { imgName, binaryStr } });
   }
 
   handleChange(e) {
@@ -119,7 +125,10 @@ class MentorForm extends React.Component {
             >
               Profile picture
             </label>
-            <PictureDropzone />
+            <PictureDropzone
+              updateProfilePic={this.updateProfilePic}
+              profilePicture={this.state.profilePicture}
+            />
           </div>
         </div>
 
