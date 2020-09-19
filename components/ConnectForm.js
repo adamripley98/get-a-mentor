@@ -1,9 +1,5 @@
 import axios from "axios";
 import Button from "./button";
-import PictureDropzone from "./Input/PictureDropzone";
-import SchoolSelect from "./Input/SchoolSelect";
-import YearSelect from "./Input/YearSelect";
-import NumSelect from "./Input/NumSelect";
 import Loading from "./Loading";
 
 class ConnectForm extends React.Component {
@@ -103,7 +99,7 @@ class ConnectForm extends React.Component {
             </h1>
             <div className="flex justify-center">
               <div
-                className="w-3/4 mx-2 py-8 px-20 border border-solid rounded-sm border-gray-300"
+                className="w-full md:w-3/4 mx-2 py-8 px-10 md:px-20 border border-solid rounded-sm border-gray-300"
                 style={{
                   boxShadow: "0 10px 28px rgba(0,0,0,.08)"
                 }}
@@ -118,8 +114,8 @@ class ConnectForm extends React.Component {
                 ) : (
                   <>
                     {this.showErrorMessage()}
-                    <div className="flex my-8">
-                      <div className="w-1/2 mr-4">
+                    <div className="flex flex-wrap">
+                      <div className="w-full lg:w-1/2 lg:pr-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="firstName"
@@ -135,7 +131,7 @@ class ConnectForm extends React.Component {
                           className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
                         />
                       </div>
-                      <div className="w-1/2 ml-4">
+                      <div className="w-full lg:w-1/2 lg:pl-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="lastName"
@@ -153,8 +149,8 @@ class ConnectForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="flex my-8">
-                      <div className="w-1/2 mr-4">
+                    <div className="flex flex-wrap">
+                      <div className="w-full lg:w-1/2 lg:pr-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="email"
@@ -170,7 +166,7 @@ class ConnectForm extends React.Component {
                           className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
                         />
                       </div>
-                      <div className="w-1/2 ml-4">
+                      <div className="w-full lg:w-1/2 lg:pl-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="phoneNumber"
@@ -188,8 +184,8 @@ class ConnectForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="flex my-8">
-                      <div className="w-1/2 mr-4">
+                    <div className="flex flex-wrap">
+                      <div className="w-full lg:w-1/2 lg:pr-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="collegesOfInterest"
@@ -205,7 +201,7 @@ class ConnectForm extends React.Component {
                           className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
                         />
                       </div>
-                      <div className="w-1/2 ml-4">
+                      <div className="w-full lg:w-1/2 lg:pl-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="currentGrade"
@@ -229,8 +225,8 @@ class ConnectForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="flex my-8">
-                      <div className="w-1/2 mr-4">
+                    <div className="flex flex-wrap">
+                      <div className="w-full lg:w-1/2 lg:pr-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="fieldOfInterest"
@@ -246,7 +242,7 @@ class ConnectForm extends React.Component {
                           className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
                         />
                       </div>
-                      <div className="w-1/2 ml-4">
+                      <div className="w-full lg:w-1/2 lg:pl-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="extracurriculars"
@@ -264,8 +260,8 @@ class ConnectForm extends React.Component {
                       </div>
                     </div>
 
-                    <div className="flex my-8">
-                      <div className="w-1/2 mr-4">
+                    <div className="flex flex-wrap">
+                      <div className="w-full lg:w-1/2 lg:pr-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="highSchool"
@@ -281,7 +277,7 @@ class ConnectForm extends React.Component {
                           className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
                         />
                       </div>
-                      <div className="w-1/2 ml-4">
+                      <div className="w-full lg:w-1/2 lg:pl-4 mb-6 ">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"
                           for="highSchool"
@@ -298,7 +294,7 @@ class ConnectForm extends React.Component {
                         />
                       </div>
                     </div>
-                    <div className="flex my-8">
+                    <div className="flex flex-wrap mb-6">
                       <div className="w-full">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-1"

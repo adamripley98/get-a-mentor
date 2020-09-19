@@ -9,8 +9,8 @@ export default function IndexPage() {
   return (
     <div>
       <Nav />
-      <section id="top" className="top-background flex items-center">
-        <div className="container mx-6 lg:mx-20 lg:flex lg:items-center rounded-lg">
+      <section id="top" className="top-background flex">
+        <div className="container my-auto mx-6 sm:mx-auto lg:mx-20 flex flex-col lg:flex-row items-center justify-center rounded-lg">
           <div className="lg:w-1/2">
             <h1 className="mt-10 lg:mt-0 text-4xl xl:text-5xl font-extrabold leading-tight dark-font">
               Ready to take the next step towards your college dreams?

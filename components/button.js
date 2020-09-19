@@ -2,7 +2,8 @@ export default ({ children, className }) => (
   <button
     className={`
         ${className}
-        px-8
+        sm:px-8
+        px-4
         py-4
         teal-btn
         rounded-sm

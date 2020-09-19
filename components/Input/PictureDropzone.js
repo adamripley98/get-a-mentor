@@ -28,7 +28,7 @@ export default ({ updateProfilePic, profilePicture }) => {
             {profilePicture && profilePicture.imgName ? (
               <p>{profilePicture.imgName}</p>
             ) : (
-              <p className="text-gray-500">Click to select file</p>
+              <p className="text-gray-500">Click to select file (3 MB limit)</p>
             )}
           </div>
         </section>
