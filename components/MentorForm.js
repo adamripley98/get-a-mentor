@@ -160,7 +160,7 @@ class MentorForm extends React.Component {
               name="phoneNumber"
               value={this.state.phoneNumber}
               onChange={this.handleChange}
-              placeholder="(123) 456-7890"
+              placeholder="123-456-7890"
               className="w-full h-12 focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-2 px-4 appearance-none leading-normal"
             />
           </div>

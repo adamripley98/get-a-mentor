@@ -6,7 +6,6 @@ var base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
 export default (req, res) => {
   base("Mentors").find(req.query.id, (err, record) => {
     if (err) {
-      console.error("err", err);
       res.end(JSON.stringify({ success: "false" }));
       return;
     }

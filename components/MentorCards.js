@@ -26,7 +26,7 @@ class MentorCards extends React.Component {
     return (
       <>
         <SchoolSelect filterMentors={this.filterMentors} />
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center">
           {this.state.filteredMentors.map(mentor => (
             <div
               key={mentor.lastName}

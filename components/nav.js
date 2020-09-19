@@ -6,7 +6,7 @@ export default function Nav() {
     <nav className="bg-white sticky top-0 shadow-lg z-50">
       <ul className="flex justify-between items-center px-6 py-3">
         <li className="text-4xl font-extrabold dark-font">
-          <Link href="/">Get A Mentor</Link>
+          <Link href="/">Get A College Mentor</Link>
         </li>
         <ul className="flex justify-between items-center space-x-4 font-bold dark-font">
           <li className="px-3">

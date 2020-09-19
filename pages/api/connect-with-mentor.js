@@ -6,7 +6,6 @@ const base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default (req, res) => {
-  console.log("enters route");
   const {
     firstName,
     lastName,
@@ -41,22 +40,46 @@ export default (req, res) => {
       <h2>Message</h2>
       <p>${message}</p>
     </div>`;
-  console.log("process.env.SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
   const msg = {
-    to: email || "adamripley@gmail.com",
+    to: mentor.Email,
     from: process.env.ADMIN_EMAIL_ADDRESS,
-    subject: `Get A Mentor Inquiry from ${firstName} ${lastName}`,
+    subject: `Get A College Mentor Inquiry from ${firstName} ${lastName}`,
     html: emailBody
   };
 
   sgMail
     .send(msg)
     .then(resp => {
-      res.statusCode = 200;
-      res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify({ success: "true" }));
+      // Airtable payload
+      var payload = [
+        {
+          fields: {
+            Name: firstName + " " + lastName,
+            Email: email,
+            "Phone Number": phoneNumber,
+            "Colleges of Interest": collegesOfInterest,
+            "Current Grade": currentGrade,
+            "Field of Interest": fieldOfInterest,
+            Extracurriculars: extracurriculars,
+            Hometown: hometown,
+            "High School": highSchool
+          }
+        }
+      ];
+
+      base("Mentees").create(payload, (err, records) => {
+        if (err) {
+          console.log("ee", err);
+          res.end(JSON.stringify({ success: "false" }));
+          return;
+        }
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify({ success: "true" }));
+      });
     })
     .catch(e => {
+      console.log("e", e);
       res.end(JSON.stringify({ success: "false" }));
       return;
     });

@@ -13,7 +13,10 @@ export default (req, res) => {
     .then(resp => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify({ success: true, mentors: resp.data.records }));
+      const mentors = resp.data.records.filter(mentor => {
+        return mentor.fields.isApproved;
+      });
+      res.end(JSON.stringify({ success: true, mentors }));
     })
     .catch(e => {
       res.end(JSON.stringify({ success: false }));

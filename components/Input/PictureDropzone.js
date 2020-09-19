@@ -5,14 +5,12 @@ export default ({ updateProfilePic, profilePicture }) => {
   const handleDrop = acceptedFiles => {
     const img = acceptedFiles[0];
     const imgName = img.name;
-    console.log("imgName", imgName);
     const reader = new FileReader();
 
     reader.onabort = () => console.log("file reading was aborted");
     reader.onerror = () => console.log("file reading has failed");
     reader.onload = () => {
       const file = reader.result;
-      console.log("binStr", file);
       updateProfilePic(imgName, file);
     };
     reader.readAsDataURL(img);

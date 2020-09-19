@@ -47,7 +47,7 @@ export default (req, res) => {
 
   const params = {
     Bucket: AWS_BUCKET_NAME,
-    Key: `profilePictures/${profilePicture.imgName || Math.random()}}`,
+    Key: `profilePictures/${profilePicture.imgName || Math.random()}`,
     ContentType: "image/jpeg",
     Body: imageConverted,
     ContentEncoding: "base64",
@@ -56,7 +56,6 @@ export default (req, res) => {
 
   s3bucket.upload(params, (errUpload, data) => {
     if (errUpload) {
-      console.log("what is err", errUpload);
       res.end(JSON.stringify({ success: "false" }));
       return;
     }
@@ -86,7 +85,6 @@ export default (req, res) => {
 
     base("Mentors").create(payload, (err, records) => {
       if (err) {
-        console.log("what is err", err);
         res.end(JSON.stringify({ success: "false" }));
         return;
       }
