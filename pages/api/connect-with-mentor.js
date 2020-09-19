@@ -67,6 +67,7 @@ export default (req, res) => {
         }
       ];
 
+      // Add a mentee to Airtable database
       base("Mentees").create(payload, (err, records) => {
         if (err) {
           console.log("ee", err);

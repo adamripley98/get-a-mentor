@@ -14,7 +14,7 @@ export default (req, res) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       const mentors = resp.data.records.filter(mentor => {
-        return mentor.fields.isApproved;
+        return mentor.fields.isApproved && mentor.fields.acceptingMentees;
       });
       res.end(JSON.stringify({ success: true, mentors }));
     })
