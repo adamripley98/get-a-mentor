@@ -64,7 +64,7 @@ class Nav extends React.Component {
                 <Link href="/become-a-mentor">Become A Mentor</Link>
               </li>
               <li className="px-3">
-                <a href="mailto:ntap@wharton.upenn.edu">
+                <a href="mailto:info@getacollegementor.com">
                   <NavButton text="Contact" />
                 </a>
               </li>
@@ -102,7 +102,7 @@ class Nav extends React.Component {
               Become a Mentor
             </a>
           </Link>
-          <a href="mailto:ntap@wharton.upenn.edu" className="my-2">
+          <a href="mailto:info@getacollegementor.com" className="my-2">
             <NavButton text="Contact" />
           </a>
         </div>

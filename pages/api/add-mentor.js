@@ -56,6 +56,7 @@ export default (req, res) => {
 
   s3bucket.upload(params, (errUpload, data) => {
     if (errUpload) {
+      console.log("error uploading image", errUpload);
       res.end(JSON.stringify({ success: "false" }));
       return;
     }
@@ -85,6 +86,7 @@ export default (req, res) => {
 
     base("Mentors").create(payload, (err, records) => {
       if (err) {
+        console.log("err uploading to db", err);
         res.end(JSON.stringify({ success: "false" }));
         return;
       }
