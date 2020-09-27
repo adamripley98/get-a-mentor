@@ -1,5 +1,6 @@
 const Airtable = require("airtable");
 const AWS = require("aws-sdk");
+import { v4 as uuidv4 } from "uuid";
 
 const base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
   process.env.AIRTABLEBASEID
@@ -41,13 +42,13 @@ export default (req, res) => {
   });
 
   const imageConverted = new Buffer(
-    profilePicture.binaryStr.replace(/^data:image\/\w+;base64,/, ""),
+    profilePicture.replace(/^data:image\/\w+;base64,/, ""),
     "base64"
   );
 
   const params = {
     Bucket: AWS_BUCKET_NAME,
-    Key: `profilePictures/${profilePicture.imgName || Math.random()}`,
+    Key: `profilePictures/${uuidv4()}`,
     ContentType: "image/jpeg",
     Body: imageConverted,
     ContentEncoding: "base64",
@@ -56,7 +57,6 @@ export default (req, res) => {
 
   s3bucket.upload(params, (errUpload, data) => {
     if (errUpload) {
-      console.log("error uploading image", errUpload);
       res.end(JSON.stringify({ success: "false" }));
       return;
     }

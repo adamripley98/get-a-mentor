@@ -89,6 +89,38 @@ ul.ks-cboxtags li input[type="checkbox"] {
   opacity: 0;
 }
 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  margin: 0 auto;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

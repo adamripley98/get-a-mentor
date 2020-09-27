@@ -50,6 +50,7 @@ export default (req, res) => {
   sgMail
     .send(msg)
     .then(resp => {
+      console.log("what is resp from sendgrid", resp);
       // Airtable payload
       var payload = [
         {

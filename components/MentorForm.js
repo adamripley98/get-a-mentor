@@ -4,13 +4,14 @@ import PictureDropzone from "./Input/PictureDropzone";
 import SchoolSelect from "./Input/SchoolSelect";
 import YearSelect from "./Input/YearSelect";
 import NumSelect from "./Input/NumSelect";
+import Crop from "./Crop";
 
 class MentorForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      profilePicture: {},
+      profilePicture: null,
       email: "",
       phoneNumber: "",
       college: "",
@@ -28,16 +29,16 @@ class MentorForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showErrorMessage = this.showErrorMessage.bind(this);
-    this.updateProfilePic = this.updateProfilePic.bind(this);
-  }
-
-  updateProfilePic(imgName, binaryStr) {
-    this.setState({ profilePicture: { imgName, binaryStr } });
+    this.setImg = this.setImg.bind(this);
   }
 
   handleChange(e) {
     e.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  setImg(img) {
+    this.setState({ profilePicture: img });
   }
 
   handleSubmit() {
@@ -124,10 +125,7 @@ class MentorForm extends React.Component {
             >
               Profile picture
             </label>
-            <PictureDropzone
-              updateProfilePic={this.updateProfilePic}
-              profilePicture={this.state.profilePicture}
-            />
+            <Crop setImg={this.setImg} />
           </div>
         </div>
 

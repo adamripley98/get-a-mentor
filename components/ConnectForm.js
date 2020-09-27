@@ -58,6 +58,7 @@ class ConnectForm extends React.Component {
     axios
       .post("/api/connect-with-mentor", { data: this.state })
       .then(resp => {
+        console.log("what is the resp in handleSubmit", resp);
         if (resp.data.success == "true") {
           this.setState({ success: true, error: false, pending: false });
           window.scrollTo(0, 0);
