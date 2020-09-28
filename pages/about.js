@@ -34,13 +34,13 @@ export default function AboutPage() {
           </h1>
           <div className="mx-6 md:mx-24 text-justify">
             <p className="text-xl lg:text-2xl mt-6 font-light">
-              Get A College Mentor was founded in 2020 by a group of South
+              Get A College Mentor was founded in 2020 by a group of Southern
               African students at the University of Pennsylvania. During the
               depths of the coronavirus pandemic, we began brainstorming ways in
-              which we could assist other South Africans looking to study
+              which we could assist other Southern Africans looking to study
               abroad, given the unusual challenges they faced as an admissions
               class. Each of us realised that we had had the extraordinary
-              benefit of knowing other South Africans at UPenn before we even
+              benefit of knowing other Southern Africans at UPenn before we even
               applied. Whether they were friends of friends from high school or
               close family members, we had each had access to a wealth of
               insight before arriving on campus. These inside scoops allowed us
@@ -50,10 +50,10 @@ export default function AboutPage() {
               opportunities when considering which colleges to choose.
             </p>
             <p className="text-xl lg:text-2xl mt-6 font-light">
-              We decided that every South African applicant should have access
-              to a network of students studying abroad. After coming to this
-              realisation, we founded Get A College Mentor to band together a
-              group of volunteer college mentors who could help alleviate the
+              We decided that every Southern African applicant should have
+              access to a network of students studying abroad. After coming to
+              this realisation, we founded Get A College Mentor to band together
+              a group of volunteer college mentors who could help alleviate the
               unknowns of planning for university.
             </p>
           </div>

@@ -39,7 +39,7 @@ export default function IndexPage() {
               Ready to take the next step towards your college dreams?
             </h1>
             <p className="text-xl lg:text-2xl mt-6 font-light">
-              Connect with South Africans studying abroad and discover the
+              Connect with Southern Africans studying abroad and discover the
               possibilities for your future.
             </p>
             <div className="my-8">

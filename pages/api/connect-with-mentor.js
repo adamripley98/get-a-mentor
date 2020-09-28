@@ -50,7 +50,6 @@ export default (req, res) => {
   sgMail
     .send(msg)
     .then(resp => {
-      console.log("what is resp from sendgrid", resp);
       // Airtable payload
       var payload = [
         {
@@ -71,7 +70,6 @@ export default (req, res) => {
       // Add a mentee to Airtable database
       base("Mentees").create(payload, (err, records) => {
         if (err) {
-          console.log("ee", err);
           res.end(JSON.stringify({ success: "false" }));
           return;
         }
@@ -81,7 +79,6 @@ export default (req, res) => {
       });
     })
     .catch(e => {
-      console.log("e", e);
       res.end(JSON.stringify({ success: "false" }));
       return;
     });

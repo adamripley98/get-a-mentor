@@ -79,14 +79,13 @@ export default (req, res) => {
           "Career Interests": careerInterests,
           "Home City": hometown,
           "High School": highSchool,
-          "Mentees/month": numMentees
+          menteesPerMonth: numMentees
         }
       }
     ];
 
     base("Mentors").create(payload, (err, records) => {
       if (err) {
-        console.log("err uploading to db", err);
         res.end(JSON.stringify({ success: "false" }));
         return;
       }

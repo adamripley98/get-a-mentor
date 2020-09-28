@@ -29,7 +29,6 @@ export default function GetAMentorPage() {
 
   if (error) return <div>Failed to load users</div>;
   if (!data) {
-    console.log("what is wrong");
     return (
       <div>
         <Head>
