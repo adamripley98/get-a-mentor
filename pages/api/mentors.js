@@ -3,7 +3,7 @@ const axios = require("axios");
 export default (req, res) => {
   axios
     .get(
-      `https://api.airtable.com/v0/${process.env.AIRTABLEBASEID}/${process.env.AIRTABLETABLENAME}?view=Grid%20view`,
+      `https://api.airtable.com/v0/${process.env.AIRTABLEBASEID}/${process.env.AIRTABLE_MENTORS_TABLE_NAME}?view=Grid%20view`,
       {
         headers: {
           Authorization: `Bearer ${process.env.AIRTABLEAPI}`
@@ -21,15 +21,13 @@ export default (req, res) => {
         );
         console.log(
           "typeof allowed",
-          mentor.fields.currentMentees,
-          typeof mentor.fields.currentMentees
-        );
-        console.log(
-          "typeof allowed",
           mentor.fields.menteesPerMonth,
-          typeof mentor.fields.menteesPerMonth
+          typeof parseInt(mentor.fields.menteesPerMonth)
         );
-        return mentor.fields.isApproved && mentor.fields.acceptingMentees;
+        const acceptingMentees =
+          mentor.fields.currentMentees < mentor.fields.menteesPerMonth;
+        console.log("accepting mentees", acceptingMentees);
+        return mentor.fields.isApproved && acceptingMentees;
       });
       res.end(JSON.stringify({ success: true, mentors }));
     })

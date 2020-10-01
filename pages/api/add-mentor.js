@@ -9,6 +9,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLEAPI }).base(
 const AWS_BUCKET_NAME = process.env.AWS_BUCKET_NAME;
 const AWS_USER_KEY = process.env.AWS_USER_KEY;
 const AWS_USER_SECRET = process.env.AWS_USER_SECRET;
+const AIRTABLE_MENTORS_TABLE_NAME = process.env.AIRTABLE_MENTORS_TABLE_NAME;
 
 export const config = {
   api: {
@@ -84,7 +85,7 @@ export default (req, res) => {
       }
     ];
 
-    base("Mentors").create(payload, (err, records) => {
+    base(AIRTABLE_MENTORS_TABLE_NAME).create(payload, (err, records) => {
       if (err) {
         res.end(JSON.stringify({ success: "false" }));
         return;

@@ -68,15 +68,31 @@ export default (req, res) => {
       ];
 
       // Add a mentee to Airtable database
-      base("Mentees").create(payload, (err, records) => {
-        if (err) {
-          res.end(JSON.stringify({ success: "false" }));
-          return;
+      base(process.env.AIRTABLE_MENTEES_TABLE_NAME).create(
+        payload,
+        (err, records) => {
+          if (err) {
+            res.end(JSON.stringify({ success: "false" }));
+            return;
+          }
+          // Update Mentors availablity, inc +1
+          base(process.env.AIRTABLE_MENTEES_TABLE_NAME).update(
+            mentor.id,
+            {
+              currentMentees: mentor.currentMentees + 1
+            },
+            (e, rec) => {
+              if (e) {
+                console.error("e", e);
+                return;
+              }
+              res.statusCode = 200;
+              res.setHeader("Content-Type", "application/json");
+              res.end(JSON.stringify({ success: "true" }));
+            }
+          );
         }
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify({ success: "true" }));
-      });
+      );
     })
     .catch(e => {
       res.end(JSON.stringify({ success: "false" }));
