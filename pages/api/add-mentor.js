@@ -49,7 +49,7 @@ export default (req, res) => {
 
   const params = {
     Bucket: AWS_BUCKET_NAME,
-    Key: `profilePictures/${uuidv4()}`,
+    Key: `profilePictures/${uuidv4()}.jpeg`,
     ContentType: "image/jpeg",
     Body: imageConverted,
     ContentEncoding: "base64",

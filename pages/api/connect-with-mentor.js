@@ -41,7 +41,7 @@ export default (req, res) => {
       <p>${message}</p>
     </div>`;
   const msg = {
-    to: mentor.Email,
+    to: "adamripley@gmail.com", //mentor.Email,
     from: process.env.ADMIN_EMAIL_ADDRESS,
     subject: `Get A College Mentor Inquiry from ${firstName} ${lastName}`,
     html: emailBody
