@@ -21,78 +21,96 @@ export default (req, res) => {
     mentor
   } = req.body.data;
 
-  const emailBody = `<div>
-      <h1>New mentor request from ${firstName} ${lastName}</h1>
-      </br>
-      <h2>Mentee Information</h2>
-      <ul
-        <li>Name: ${firstName} ${lastName}</li>
-        <li>Email: <a href=mailto:${email}>${email}</a></li>
-        <li>Phone number: ${phoneNumber}</li>
-        <li>Colleges of Interest: ${collegesOfInterest}</li>
-        <li>Field of Interest: ${fieldOfInterest}</li>
-        <li>Current Grade Level: ${currentGrade}</li>
-        <li>Extracurriculars: ${extracurriculars}</li>
-        <li>High School: ${highSchool}</li>
-        <li>Hometown: ${hometown}</li>
-      </ul>
-      </br>
-      <h2>Message</h2>
-      <p>${message}</p>
-    </div>`;
+  // Construct message to send to mentor
   const msg = {
-    to: "adamripley@gmail.com", //mentor.Email,
+    to: mentor.Email,
     from: process.env.ADMIN_EMAIL_ADDRESS,
-    subject: `Get A College Mentor Inquiry from ${firstName} ${lastName}`,
-    html: emailBody
+    templateId: process.env.SENDGRID_MENTORSHIP_REQUEST_TEMPLATE_ID,
+    dynamicTemplateData: {
+      menteeFullName: `${firstName} ${lastName}`,
+      message: `${message}`,
+      menteeFirstName: `${firstName}`,
+      menteeEmail: `${email}`,
+      menteePhoneNumber: `${phoneNumber}`,
+      menteeCollegesOfInterest: `${collegesOfInterest}`,
+      menteeFieldOfInterest: `${fieldOfInterest}`,
+      menteeCurrentGrade: `${currentGrade}`,
+      menteeExtracurriculars: `${extracurriculars}`,
+      menteeHighSchool: `${highSchool}`,
+      menteeHometown: `${hometown}`
+    }
   };
 
+  // Send message to mentor
   sgMail
     .send(msg)
     .then(resp => {
-      // Airtable payload
-      var payload = [
-        {
-          fields: {
-            Name: firstName + " " + lastName,
-            Email: email,
-            "Phone Number": phoneNumber,
-            "Colleges of Interest": collegesOfInterest,
-            "Current Grade": currentGrade,
-            "Field of Interest": fieldOfInterest,
-            Extracurriculars: extracurriculars,
-            Hometown: hometown,
-            "High School": highSchool
-          }
+      // Construct message to mentee
+      const menteeMsg = {
+        to: email,
+        from: process.env.ADMIN_EMAIL_ADDRESS,
+        templateId:
+          process.env.SENDGRID_MENTEE_APPLICATION_COMFIRMATION_TEMPLATE_ID,
+        dynamicTemplateData: {
+          mentorFullName: `${mentor.Name}`,
+          mentorFirstName: `${mentor.Name.split(" ")
+            .slice(0, -1)
+            .join(" ")}`,
+          mentorEmail: `${mentor.Email}`
         }
-      ];
-
-      // Add a mentee to Airtable database
-      base(process.env.AIRTABLE_MENTEES_TABLE_NAME).create(
-        payload,
-        (err, records) => {
-          if (err) {
-            res.end(JSON.stringify({ success: "false" }));
-            return;
-          }
-          // Update Mentors availablity, inc +1
-          base(process.env.AIRTABLE_MENTEES_TABLE_NAME).update(
-            mentor.id,
+      };
+      // Send message to mentee
+      sgMail
+        .send(menteeMsg)
+        .then(resp2 => {
+          // Airtable payload
+          var payload = [
             {
-              currentMentees: mentor.currentMentees + 1
-            },
-            (e, rec) => {
-              if (e) {
-                console.error("e", e);
+              fields: {
+                Name: firstName + " " + lastName,
+                Email: email,
+                "Phone Number": phoneNumber,
+                "Colleges of Interest": collegesOfInterest,
+                "Current Grade": currentGrade,
+                "Field of Interest": fieldOfInterest,
+                Extracurriculars: extracurriculars,
+                Hometown: hometown,
+                "High School": highSchool
+              }
+            }
+          ];
+
+          // Add a mentee to Airtable database
+          base(process.env.AIRTABLE_MENTEES_TABLE_NAME).create(
+            payload,
+            (err, records) => {
+              if (err) {
+                res.end(JSON.stringify({ success: "false" }));
                 return;
               }
-              res.statusCode = 200;
-              res.setHeader("Content-Type", "application/json");
-              res.end(JSON.stringify({ success: "true" }));
+              // Update Mentors availablity, inc +1
+              base(process.env.AIRTABLE_MENTEES_TABLE_NAME).update(
+                mentor.id,
+                {
+                  currentMentees: mentor.currentMentees + 1
+                },
+                (e, rec) => {
+                  if (e) {
+                    console.error("e", e);
+                    return;
+                  }
+                  res.statusCode = 200;
+                  res.setHeader("Content-Type", "application/json");
+                  res.end(JSON.stringify({ success: "true" }));
+                }
+              );
             }
           );
-        }
-      );
+        })
+        .catch(e2 => {
+          res.end(JSON.stringify({ success: "false" }));
+          return;
+        });
     })
     .catch(e => {
       res.end(JSON.stringify({ success: "false" }));

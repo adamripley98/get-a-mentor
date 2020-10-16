@@ -14,19 +14,8 @@ export default (req, res) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       const mentors = resp.data.records.filter(mentor => {
-        console.log(
-          "typeof curr",
-          mentor.fields.currentMentees,
-          typeof mentor.fields.currentMentees
-        );
-        console.log(
-          "typeof allowed",
-          mentor.fields.menteesPerMonth,
-          typeof parseInt(mentor.fields.menteesPerMonth)
-        );
         const acceptingMentees =
           mentor.fields.currentMentees < mentor.fields.menteesPerMonth;
-        console.log("accepting mentees", acceptingMentees);
         return mentor.fields.isApproved && acceptingMentees;
       });
       res.end(JSON.stringify({ success: true, mentors }));
