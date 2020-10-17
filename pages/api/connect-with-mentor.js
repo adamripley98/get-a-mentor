@@ -45,6 +45,9 @@ export default (req, res) => {
   sgMail
     .send(msg)
     .then(resp => {
+      if (resp.data && resp.data.errors) {
+        console.err(resp.data.errors);
+      }
       // Construct message to mentee
       const menteeMsg = {
         to: email,
@@ -108,11 +111,13 @@ export default (req, res) => {
           );
         })
         .catch(e2 => {
+          console.error("error sending message: ", e2);
           res.end(JSON.stringify({ success: "false" }));
           return;
         });
     })
     .catch(e => {
+      console.error("Error sending message: ", e);
       res.end(JSON.stringify({ success: "false" }));
       return;
     });
