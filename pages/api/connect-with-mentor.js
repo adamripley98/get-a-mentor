@@ -24,7 +24,10 @@ export default (req, res) => {
   // Construct message to send to mentor
   const msg = {
     to: mentor.Email,
-    from: process.env.ADMIN_EMAIL_ADDRESS,
+    from: {
+      name: "Get A College Mentor",
+      email: process.env.ADMIN_EMAIL_ADDRESS
+    },
     templateId: process.env.SENDGRID_MENTORSHIP_REQUEST_TEMPLATE_ID,
     dynamicTemplateData: {
       menteeFullName: `${firstName} ${lastName}`,
@@ -51,7 +54,10 @@ export default (req, res) => {
       // Construct message to mentee
       const menteeMsg = {
         to: email,
-        from: process.env.ADMIN_EMAIL_ADDRESS,
+        from: {
+          name: "Get A College Mentor",
+          email: process.env.ADMIN_EMAIL_ADDRESS
+        },
         templateId:
           process.env.SENDGRID_MENTEE_APPLICATION_COMFIRMATION_TEMPLATE_ID,
         dynamicTemplateData: {
