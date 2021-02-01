@@ -94,6 +94,7 @@ export default (req, res) => {
             payload,
             (err, records) => {
               if (err) {
+                console.err(err);
                 res.end(JSON.stringify({ success: "false" }));
                 return;
               }
@@ -105,7 +106,7 @@ export default (req, res) => {
                 },
                 (e, rec) => {
                   if (e) {
-                    console.error("e", e);
+                    console.err(e);
                     return;
                   }
                   res.statusCode = 200;
@@ -117,13 +118,13 @@ export default (req, res) => {
           );
         })
         .catch(e2 => {
-          console.error("error sending message: ", e2);
+          console.error(e2);
           res.end(JSON.stringify({ success: "false" }));
           return;
         });
     })
     .catch(e => {
-      console.error("Error sending message: ", e);
+      console.error(e);
       res.end(JSON.stringify({ success: "false" }));
       return;
     });
