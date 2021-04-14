@@ -66,6 +66,16 @@ export default function GetAMentorPage() {
         <title>Get A Mentor | Get A College Mentor</title>
       </Head>
       <Nav />
+      <div className="px-4 dark-font py-4 bg-yellow-300">
+        <p>
+          <span className="font-bold">Note:</span> Our mentors are not college
+          advisors, and we do not permit parents to participate in our services.
+          Read our full policies{" "}
+          <a href="/about/#policies" className="underline">
+            here.
+          </a>
+        </p>
+      </div>
       <section className="container mx-auto">
         <div className="container mx-auto px-2 py-12">
           <h1 className="mb-8 text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center dark-font">

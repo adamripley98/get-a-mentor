@@ -29,10 +29,10 @@ export default function AboutPage() {
       <Nav />
       <section className="container mx-auto">
         <div className="container mx-auto px-2 py-12">
-          <h1 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center dark-font">
+          <h1 className="mx-6 md:mx-24 text-2xl lg:text-3xl xl:text-4xl font-extrabold dark-font">
             Who We Are
           </h1>
-          <div className="mx-6 md:mx-24 text-justify">
+          <div className="mx-6 md:mx-24 text-justify mb-6">
             <p className="text-xl lg:text-2xl mt-6 font-light">
               Get A College Mentor was founded in 2020 by a group of Southern
               African students at the University of Pennsylvania. During the
@@ -55,6 +55,34 @@ export default function AboutPage() {
               this realisation, we founded Get A College Mentor to band together
               a group of volunteer college mentors who could help alleviate the
               unknowns of planning for university.
+            </p>
+          </div>
+
+          <h1 className="mx-6 md:mx-24 text-2xl lg:text-3xl xl:text-4xl font-extrabold dark-font">
+            Our Policies
+          </h1>
+          <div className="mx-6 md:mx-24 text-justify" id="policies">
+            <p className="text-xl lg:text-2xl mt-6 font-light">
+              <span className="font-bold">
+                Our mentors are not college advisors, and therefore do not and
+                cannot provide any assistance in the application process.
+              </span>{" "}
+              Our mentors aim to shed light on their university experiences so
+              that applicants can make more informed choices about which
+              colleges might be the right fit. We can provide insight on topics
+              like what to expect from student life, workload, job prospects,
+              and academic opportunities. Essentially, we foster conversations,
+              not consultations.
+            </p>
+            <p className="text-xl lg:text-2xl mt-6 font-light">
+              Given that our mentors are volunteers and have very limited time
+              to offer each student,{" "}
+              <span className="font-bold">
+                we do not permit parents to participate in our services.
+              </span>{" "}
+              Mentor requests should be made by the students themselves, and any
+              conversations held should involve only the student and their
+              mentor.
             </p>
           </div>
         </div>
