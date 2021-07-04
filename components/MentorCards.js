@@ -17,6 +17,9 @@ class MentorCards extends React.Component {
       if (mentor.College === "University of Pennsylvania") {
         return checkStates["upenn"];
       }
+      if (mentor.College === "UNC Chapell Hill") {
+        return checkStates["uncChapellHill"];
+      }
       return checkStates[mentor.College.toLowerCase()];
     });
     this.setState({ filteredMentors });

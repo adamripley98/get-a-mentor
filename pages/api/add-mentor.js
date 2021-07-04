@@ -19,6 +19,16 @@ export const config = {
   }
 };
 
+const getCollegeName = coll => {
+  if (coll === "upenn") {
+    return "University of Pennsylvania";
+  } else if (coll === "uncChapellHill") {
+    return "UNC Chapell Hill";
+  } else {
+    return coll.charAt(0).toUpperCase() + coll.slice(1);
+  }
+};
+
 export default (req, res) => {
   const {
     name,
@@ -69,10 +79,7 @@ export default (req, res) => {
           "Profile Picture": data.Location,
           Email: email,
           "Phone Number": phoneNumber,
-          College:
-            college === "upenn"
-              ? "University of Pennsylvania"
-              : college.charAt(0).toUpperCase() + college.slice(1),
+          College: getCollegeName(college),
           "Year of College":
             yearOfCollege.charAt(0).toUpperCase() + yearOfCollege.slice(1),
           "Field of Study": fieldOfStudy,
@@ -87,6 +94,7 @@ export default (req, res) => {
 
     base(AIRTABLE_MENTORS_TABLE_NAME).create(payload, (err, records) => {
       if (err) {
+        console.log("error:", err);
         res.end(JSON.stringify({ success: "false" }));
         return;
       }
