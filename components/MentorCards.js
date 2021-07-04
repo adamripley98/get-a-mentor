@@ -13,7 +13,6 @@ class MentorCards extends React.Component {
 
   filterMentors(checkStates) {
     const { mentors } = this.state;
-    const { mentors } = this.state;
     const filteredMentors = mentors.filter(mentor => {
       if (mentor.College === "University of Pennsylvania") {
         return checkStates["upenn"];
