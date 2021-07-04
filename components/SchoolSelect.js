@@ -10,7 +10,7 @@ class SchoolSelect extends React.Component {
       columbia: false,
       yale: false,
       brown: false,
-      uncChapellHill: false
+      uncChapelHill: false
     };
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
   }
@@ -118,11 +118,11 @@ class SchoolSelect extends React.Component {
             <input
               type="checkbox"
               onChange={this.toggleCheckbox}
-              id="uncChapellHill"
-              value="uncChapellHill"
-              checked={this.state["uncChapellHill"]}
+              id="uncChapelHill"
+              value="uncChapelHill"
+              checked={this.state["uncChapelHill"]}
             />
-            <label for="uncChapellHill">UNC Chapell Hill</label>
+            <label for="uncChapelHill">UNC Chapel Hill</label>
           </li>
         </ul>
       </div>

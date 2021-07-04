@@ -22,8 +22,8 @@ export const config = {
 const getCollegeName = coll => {
   if (coll === "upenn") {
     return "University of Pennsylvania";
-  } else if (coll === "uncChapellHill") {
-    return "UNC Chapell Hill";
+  } else if (coll === "uncChapelHill") {
+    return "UNC Chapel Hill";
   } else {
     return coll.charAt(0).toUpperCase() + coll.slice(1);
   }

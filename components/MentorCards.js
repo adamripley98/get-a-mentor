@@ -13,12 +13,13 @@ class MentorCards extends React.Component {
 
   filterMentors(checkStates) {
     const { mentors } = this.state;
+    const { mentors } = this.state;
     const filteredMentors = mentors.filter(mentor => {
       if (mentor.College === "University of Pennsylvania") {
         return checkStates["upenn"];
       }
-      if (mentor.College === "UNC Chapell Hill") {
-        return checkStates["uncChapellHill"];
+      if (mentor.College === "UNC Chapel Hill") {
+        return checkStates["uncChapelHill"];
       }
       return checkStates[mentor.College.toLowerCase()];
     });
