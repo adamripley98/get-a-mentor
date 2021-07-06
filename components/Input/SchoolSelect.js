@@ -16,6 +16,6 @@ export default ({ handleChange }) => (
     <option value="yale">Yale</option>
     <option value="dartmouth">Dartmouth</option>
     <option value="cornell">Cornell</option>
-    <option value="uncChapelHill">UNC Chapil Hill</option>
+    <option value="uncChapelHill">UNC Chapel Hill</option>
   </select>
 );
