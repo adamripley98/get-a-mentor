@@ -84,7 +84,8 @@ export default (req, res) => {
                 "Field of Interest": fieldOfInterest,
                 Extracurriculars: extracurriculars,
                 Hometown: hometown,
-                "High School": highSchool
+                "High School": highSchool,
+                "Mentor Contacted": mentor.Email
               }
             }
           ];
